@@ -106,20 +106,6 @@ effectiveStdenv.mkDerivation (
     version = llamaVersion;
 
     src = ../../.;
-    meta = {
-      description = "LLaMA model in pure C/C++${descriptionSuffix}";
-      mainProgram = "llama";
-
-
-      # These people might respond if you ping them in case of Nix-specific
-      # regressions or for reviewing Nix-specific PRs.
-
-      # Note that lib.maintainers is defined in Nixpkgs.
-      maintainers = with lib.maintainers; [
-          philiptaron
-          SomeoneSerge
-      ];
-    };
 
     postPatch = ''
       substituteInPlace ./ggml-metal.m \
@@ -194,6 +180,20 @@ effectiveStdenv.mkDerivation (
         buildInputs = [ llama-python-extra ];
         inputsFrom = [ finalAttrs.finalPackage ];
       };
+    };
+
+    meta = {
+      description = "Inference of LLaMA model in pure C/C++${descriptionSuffix}";
+      mainProgram = "llama";
+
+      # These people might respond if you ping them in case of Nix-specific
+      # regressions or for reviewing Nix-specific PRs.
+
+      # Note that lib.maintainers is defined in Nixpkgs.
+      maintainers = with lib.maintainers; [
+          philiptaron
+          SomeoneSerge
+      ];
     };
   }
 )
