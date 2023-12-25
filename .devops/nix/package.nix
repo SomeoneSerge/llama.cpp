@@ -167,6 +167,14 @@ effectiveStdenv.mkDerivation (
 
     # Define the shells here, but don't add in the inputsFrom to avoid recursion.
     passthru = {
+      inherit
+        useBlas
+        useCuda
+        useMetalKit
+        useOpenCL
+        useRocm
+        ;
+
       shell = mkShell {
         name = "shell-${finalAttrs.finalPackage.name}";
         description = "contains numpy and sentencepiece";
