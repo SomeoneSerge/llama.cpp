@@ -1,5 +1,6 @@
 #define _CRT_SECURE_NO_DEPRECATE // Disables ridiculous "unsafe" warnings on Windows
 #define _USE_MATH_DEFINES // For M_PI on MSVC
+                          //
 
 #include "ggml-impl.h"
 #include "ggml-quants.h"
